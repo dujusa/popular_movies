@@ -1,6 +1,23 @@
+
 # popular_movies
 
-A new Flutter project.
+A Flutter project.
+Simple movie viewer for the most popular movies.
+
+Functionalities 
+- display popular movies
+- display movie detail - poster and description
+- filter movies by title
+- display movie detail - vote average
+
+Tech Stack
+- Dart
+- Flutter BLoC
+- JSON Serializable
+- DIO
+- Retrofit
+- RXDart
+
 
 ## Getting Started
 
