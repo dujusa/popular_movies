@@ -26,7 +26,7 @@ class _MovieDetailsViewState extends State<MovieDetailsView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Popular movies")
+        title: const Text("Movie details")
       ),
       body: StreamBuilder(
         stream: moviesDetailsBloc.movieDetails,
