@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:popular_movies/bloc/movie_details_bloc.dart';
 import 'package:popular_movies/model/movie_details.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -69,17 +70,10 @@ class _MovieDetailsViewState extends State<MovieDetailsView> {
                       ),
                     ),
                     Positioned.fill(child: Align(
-                      child:Padding(padding: const EdgeInsets.only(left: 15),child:  CircleAvatar(
-                        backgroundColor: constants.appMainColor,
-                        radius: 25.0,
-                        child:  Text(snapshot.data!.voteAverage.toString(),
-                          style: const TextStyle(color: Colors.white),),
-                      )),
+                      child:Padding(padding: const EdgeInsets.only(left: 15),child:
+                      getMovieScore(snapshot.data!.voteAverage)),
                       alignment: Alignment.bottomLeft,
                     )),
-
-
-
                   ],
                 )
               ],
@@ -106,6 +100,30 @@ class _MovieDetailsViewState extends State<MovieDetailsView> {
           ],
         )
       ));
+  }
+
+  Widget getMovieScore(double movieScore) {
+    return Stack(
+      children: [
+        const CircleAvatar(
+            backgroundColor: constants.appMainColor,
+            radius: 26.0
+        ),
+        Positioned(
+            bottom: 0,
+            right: 0,
+            top:0,
+            left: 0,
+            child: CircularPercentIndicator(
+              radius: 45.0,
+              lineWidth: 2.0,
+              percent: movieScore/10,
+              center: Text((movieScore*10).toInt().toString() + "%", style: const TextStyle(color: Colors.white)),
+              progressColor: Colors.green,
+              backgroundColor: Colors.transparent,
+            )),
+      ],
+    );
   }
 
 
